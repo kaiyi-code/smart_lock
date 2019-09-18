@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface LockService {
     List<Locks> all();
+    List<Locks> testall();
     int register(Locks lock);
     List<Locks> findLockByUserId(String userId);
     Locks findLockByLockId(String lockId);

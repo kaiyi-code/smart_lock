@@ -27,9 +27,18 @@ public class LockController {
     @RequestMapping("/all")
     public Result all(){
         List<Locks>result =  lockService.all();
+        logger.info("return info of all valid locks");
+        return ResultUtil.success(1,result);
+    }
+
+    //查看所有的车位锁信息
+    @RequestMapping("/test_all")
+    public Result testAll(){
+        List<Locks>result =  lockService.testall();
         logger.info("return info of all locks");
         return ResultUtil.success(1,result);
     }
+
 
     //注册新的车位锁
     @RequestMapping("/register")

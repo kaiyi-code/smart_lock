@@ -23,6 +23,11 @@ public class LockServiceImpl implements LockService {
     }
 
     @Override
+    public List<Locks> testall() {
+        return lockDao.testall();
+    }
+
+    @Override
     public int register(Locks lock) {
         return lockDao.insert(lock);
     }

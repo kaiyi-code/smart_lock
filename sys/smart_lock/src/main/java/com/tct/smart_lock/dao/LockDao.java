@@ -51,7 +51,7 @@ public interface LockDao {
     @Delete("delete from locks where lock_id = #{lockId}")
     int deleteByLockId(String lockId);
 
-    @Select("select * from locks")
+    @Select("select * from locks where longitude != -1 and address is not null")
     @Results({
             @Result(property = "lockId", column = "lock_id"),
             @Result(property = "lockState", column = "lock_state"),
@@ -59,4 +59,13 @@ public interface LockDao {
             @Result(property = "regId",column = "reg_id")
     })
     List<Locks> all();
+
+    @Select("select * from locks")
+    @Results({
+            @Result(property = "lockId", column = "lock_id"),
+            @Result(property = "lockState", column = "lock_state"),
+            @Result(property = "userId", column = "user_id"),
+            @Result(property = "regId",column = "reg_id")
+    })
+    List<Locks> testall();
 }
